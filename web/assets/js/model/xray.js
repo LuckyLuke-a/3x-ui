@@ -898,15 +898,15 @@ class RealityStreamSettings extends XrayCommonClass {
         dest = 'yahoo.com:443',
         serverNames = 'yahoo.com,www.yahoo.com',
         privateKey = '',
-        minClient = '',
-        maxClient = '',
-        maxTimediff = 0,
+        minClientVer = '1.9.6',
+        maxClientVer = '',
+        maxTimeDiff = 0,
         shortIds = RandomUtil.randomShortIds(),
-        serverRandPacket = "800-1800",
-        clientRandPacket = "60-250",
-        clientRandPacketCount = "1-2",
-        serverRandPacketCount = "1-5",
-        splitPacket = "300-900",
+        serverRandPacket = "1000-3000",
+        clientRandPacket = "100-500",
+        clientRandPacketCount = "1-3",
+        serverRandPacketCount = "1-6",
+        splitPacket = "400-1000",
         paddingSize = 5,
         subchunkSize = 12,
         settings = new RealityStreamSettings.Settings()
@@ -917,9 +917,9 @@ class RealityStreamSettings extends XrayCommonClass {
         this.dest = dest;
         this.serverNames = Array.isArray(serverNames) ? serverNames.join(",") : serverNames;
         this.privateKey = privateKey;
-        this.minClient = minClient;
-        this.maxClient = maxClient;
-        this.maxTimediff = maxTimediff;
+        this.minClientVer = minClientVer;
+        this.maxClientVer = maxClientVer;
+        this.maxTimeDiff = maxTimeDiff;
         this.shortIds = Array.isArray(shortIds) ? shortIds.join(",") : shortIds;
         this.settings = settings;
         this.serverRandPacket = serverRandPacket;
@@ -946,9 +946,9 @@ class RealityStreamSettings extends XrayCommonClass {
             json.dest,
             json.serverNames,
             json.privateKey,
-            json.minClient,
-            json.maxClient,
-            json.maxTimediff,
+            json.minClientVer,
+            json.maxClientVer,
+            json.maxTimeDiff,
             json.shortIds,
             json.serverRandPacket,
             json.clientRandPacket,
@@ -968,9 +968,9 @@ class RealityStreamSettings extends XrayCommonClass {
             dest: this.dest,
             serverNames: this.serverNames.split(","),
             privateKey: this.privateKey,
-            minClient: this.minClient,
-            maxClient: this.maxClient,
-            maxTimediff: this.maxTimediff,
+            minClientVer: this.minClientVer,
+            maxClientVer: this.maxClientVer,
+            maxTimeDiff: this.maxTimeDiff,
             shortIds: this.shortIds.split(","),
             settings: this.settings,
             serverRandPacket: this.serverRandPacket,
@@ -987,7 +987,7 @@ class RealityStreamSettings extends XrayCommonClass {
 RealityStreamSettings.Settings = class extends XrayCommonClass {
     constructor(
         publicKey = '',
-        fingerprint = UTLS_FINGERPRINT.UTLS_RANDOM,
+        fingerprint = UTLS_FINGERPRINT.UTLS_CHROME,
         serverName = '',
         spiderX = '/'
     ) {
